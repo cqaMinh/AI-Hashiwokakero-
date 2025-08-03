@@ -2,7 +2,7 @@ import os
 import time
 from hashiclass import HashiSolver
 from helper01 import _backtrack_recursive, solve_with_backtracking, solve_with_brute_force
-from helper02 import _heuristic, solve_with_a_star
+from helper02 import solve_with_a_star
 from helper03 import solve_with_pysat, _model_to_solution
 
 def load_grid_from_file(filename):
@@ -23,7 +23,7 @@ def load_grid_from_file(filename):
 
 
 if __name__ == '__main__':
-    input_file = 'input-01.txt'
+    input_file = '../Inputs/input-01.txt'
     grid_data = load_grid_from_file(input_file)
 
     if grid_data:
@@ -43,7 +43,6 @@ if __name__ == '__main__':
         
         # Giải bằng A*
         solver_astar = HashiSolver(grid_data)
-        initial_assignment = [-1] * len(solver_astar.potential_bridges)
         solution_astar = solver_astar.solve_with_a_star()
         solver_astar.print_solution(solution_astar)
         print("\n" + "="*50)
