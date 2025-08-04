@@ -275,11 +275,14 @@ def solve_with_a_star(self):
         current, peak = tracemalloc.get_traced_memory()
         tracemalloc.stop()
         print(f"Tìm thấy lời giải trong {end_time - start_time:.4f} giây.")
-        print(f"Memory usage: Current - {current / 10**6:.4f} MB, Peak - {peak / 10**6:.4f} MB")
+        print(f"Bộ nhớ sử dụng: Hiện tại - {current / 10**6:.4f} MB, Tối đa - {peak / 10**6:.4f} MB")
         return result
     
     end_time = time.time()
+    current, peak = tracemalloc.get_traced_memory()
+    tracemalloc.stop()
     print(f"Không tìm thấy lời giải. Thời gian: {end_time - start_time:.4f} giây.")
+    print(f"Bộ nhớ sử dụng: Hiện tại - {current / 10**6:.4f} MB, Tối đa - {peak / 10**6:.4f} MB")
     return None
 
 HashiSolver.define_variables = define_variables

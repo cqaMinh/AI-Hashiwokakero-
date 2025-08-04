@@ -35,8 +35,8 @@ def solve_with_pysat(self):
                     end_time = time.time()
                     current, peak = tracemalloc.get_traced_memory()
                     tracemalloc.stop()
-                    print(f"Memory usage: Current - {current / 10**6:.4f} MB, Peak - {peak / 10**6:.4f} MB")
                     print(f"Tìm thấy lời giải trong {end_time - start_time:.4f} giây.")
+                    print(f"Bộ nhớ sử dụng: Hiện tại - {current / 10**6:.4f} MB, Tối đa - {peak / 10**6:.4f} MB")
                     return solution
                 else:
                     # Nếu không liên thông, thêm mệnh đề chặn lời giải này
@@ -47,7 +47,7 @@ def solve_with_pysat(self):
         current, peak = tracemalloc.get_traced_memory()
         tracemalloc.stop()
         print(f"Không tìm thấy lời giải liên thông. Thời gian: {end_time - start_time:.4f} giây.")
-        print(f"Memory usage: Current - {current / 10**6:.4f} MB, Peak - {peak / 10**6:.4f} MB")
+        print(f"Bộ nhớ sử dụng: Hiện tại - {current / 10**6:.4f} MB, Tối đa - {peak / 10**6:.4f} MB")
         return None
 
 HashiSolver.solve_with_pysat = solve_with_pysat
