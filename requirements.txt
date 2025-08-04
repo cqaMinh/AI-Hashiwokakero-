@@ -1,5 +1,1 @@
-cài thư viện python-sat:
-$ pip install python-sat[extras]
-or
-$ pip install --target [] python-sat[extras]
-# [] = đường dẫn đến thư mục có file code để cài thư viện vào cùng folder
+python-sat[extras]
