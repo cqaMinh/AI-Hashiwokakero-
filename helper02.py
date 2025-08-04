@@ -1,6 +1,7 @@
 from hashiclass import HashiSolver
 import time
 import heapq
+import tracemalloc
 from collections import defaultdict
 from itertools import combinations
 
@@ -249,6 +250,7 @@ def a_star_search(self, clauses, clause_to_vars, var_map, valid_bridges):
 def solve_with_a_star(self):
     print("\n--- Giải bằng A* ---")
     start_time = time.time()
+    tracemalloc.start()
     
     clauses, clause_to_vars, var_map, valid_bridges = self.generate_cnf_astar()
     assignment = self.a_star_search(clauses, clause_to_vars, var_map, valid_bridges)
@@ -270,7 +272,10 @@ def solve_with_a_star(self):
         #print(f"Raw assignment: {assignment}")
         #print(f"Converted solution: {result}")
         end_time = time.time()
+        current, peak = tracemalloc.get_traced_memory()
+        tracemalloc.stop()
         print(f"Tìm thấy lời giải trong {end_time - start_time:.4f} giây.")
+        print(f"Memory usage: Current - {current / 10**6:.4f} MB, Peak - {peak / 10**6:.4f} MB")
         return result
     
     end_time = time.time()
