@@ -42,7 +42,6 @@ def solve_with_backtracking(self):
             print(f"Bộ nhớ sử dụng: Hiện tại - {current / 10**6:.4f} MB, Tối đa - {peak / 10**6:.4f} MB")
         else:
             print(f"Không tìm thấy lời giải. Thời gian: {end_time - start_time:.4f} giây.")
-        print(f"Bộ nhớ sử dụng: Hiện tại - {current / 10**6:.4f} MB, Tối đa - {peak / 10**6:.4f} MB")
         return solution
 
 
@@ -81,4 +80,5 @@ def solve_with_brute_force(self):
 HashiSolver.solve_with_backtracking = solve_with_backtracking
 HashiSolver.solve_with_brute_force = solve_with_brute_force
 HashiSolver._backtrack_recursive = _backtrack_recursive
+
 
